@@ -1,0 +1,7 @@
+commandUnitType: COMMAND
+targetToAllEnv: true
+commandUnits:
+  - name: Resize Kubernetes Replication Controller
+    commandUnitType: RESIZE_KUBERNETES
+    deploymentType: KUBERNETES
+type: RESIZE
