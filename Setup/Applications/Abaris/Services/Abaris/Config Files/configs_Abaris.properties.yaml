@@ -1,0 +1,7 @@
+targetFilePath: configs/Abaris.properties
+encrypted: false
+fileName: Abaris.properties
+checksum: 8c6a9179e8dc163cdc80fff8198e3741
+checksumType: MD5
+targetToAllEnv: false
+type: CONFIG_FILE

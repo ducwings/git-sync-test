@@ -1,0 +1,7 @@
+targetFilePath: configs/Abundantia.properties
+encrypted: false
+fileName: Abundantia.properties
+checksum: 0b1e4b3deb05938ad1512f944de74158
+checksumType: MD5
+targetToAllEnv: false
+type: CONFIG_FILE

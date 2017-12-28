@@ -1,0 +1,4 @@
+splunkUrl: https://ec2-52-54-103-49.compute-1.amazonaws.com:8089
+username: admin
+password: safeharness:-XsCZcVQSDiCxTV99Ma2oA
+type: SPLUNK

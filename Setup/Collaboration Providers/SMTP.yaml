@@ -1,0 +1,7 @@
+host: smtp.gmail.com
+port: 465
+fromAddress: support@harness.io
+useSSL: true
+username: support@harness.io
+password: safeharness:L7uOoA7ITY-ol0KlKgjMoQ
+type: SMTP
