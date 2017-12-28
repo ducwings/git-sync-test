@@ -1,0 +1,7 @@
+commandUnitType: COMMAND
+targetToAllEnv: true
+commandUnits:
+  - name: Setup ECS Service
+    commandUnitType: ECS_SETUP
+    deploymentType: ECS
+type: SETUP
