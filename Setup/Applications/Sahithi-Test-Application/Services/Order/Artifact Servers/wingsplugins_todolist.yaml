@@ -1,0 +1,4 @@
+imageName: wingsplugins/todolist
+artifactServerName: Harness Docker Registry
+metadataOnly: false
+type: DOCKER
