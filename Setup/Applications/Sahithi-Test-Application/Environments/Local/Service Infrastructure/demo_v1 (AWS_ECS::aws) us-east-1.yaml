@@ -1,0 +1,8 @@
+region: us-east-1
+computeProviderType: AWS
+serviceName: Order
+infraMappingType: AWS_ECS
+deploymentType: ECS
+computeProviderName: aws
+harnessApiVersion: '1.0'
+type: AWS_ECS
