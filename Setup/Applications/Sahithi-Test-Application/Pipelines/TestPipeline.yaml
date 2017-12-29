@@ -1,0 +1,5 @@
+pipelineStages:
+  - name: step1
+    parallel: false
+    workflowName: WorkflowA
+    type: ENV_STATE
