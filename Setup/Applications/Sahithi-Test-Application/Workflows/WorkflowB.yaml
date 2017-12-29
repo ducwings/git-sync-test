@@ -20,6 +20,10 @@ phases:
         steps:
           - name: Upgrade Containers
             rollback: false
+            properties:
+                commandName: Resize Service Cluster
+                instanceUnitType: COUNT
+                instanceCount: 1
             type: ECS_SERVICE_DEPLOY
         rollback: false
         type: CONTAINER_DEPLOY
