@@ -1,0 +1,76 @@
+envName: Local
+templatized: false
+phases:
+  - name: Phase 1
+    infraMappingName: demo_v1 (AWS_ECS::aws) us-east-1
+    serviceName: Order
+    computeProviderName: aws
+    provisionNodes: false
+    phaseSteps:
+      - name: Setup Container
+        stepsInParallel: false
+        steps:
+          - name: ECS Service Setup
+            rollback: false
+            type: ECS_SERVICE_SETUP
+        rollback: false
+        type: CONTAINER_SETUP
+      - name: Deploy Containers
+        stepsInParallel: false
+        steps:
+          - name: Upgrade Containers
+            rollback: false
+            type: ECS_SERVICE_DEPLOY
+        rollback: false
+        type: CONTAINER_DEPLOY
+      - name: Verify Service
+        stepsInParallel: false
+        rollback: false
+        type: VERIFY_SERVICE
+      - name: Wrap Up
+        stepsInParallel: false
+        rollback: false
+        type: WRAP_UP
+    type: ECS
+rollbackPhases:
+  - name: Rollback Phase 1
+    infraMappingName: demo_v1 (AWS_ECS::aws) us-east-1
+    serviceName: Order
+    computeProviderName: aws
+    provisionNodes: false
+    phaseNameForRollback: Phase 1
+    phaseSteps:
+      - name: Deploy Containers
+        statusForRollback: SUCCESS
+        stepsInParallel: false
+        steps:
+          - name: Rollback Containers
+            rollback: false
+            properties:
+                rollback: true
+            type: ECS_SERVICE_ROLLBACK
+        rollback: true
+        phaseStepNameForRollback: Deploy Containers
+        type: CONTAINER_DEPLOY
+      - name: Wrap Up
+        stepsInParallel: false
+        rollback: false
+        type: WRAP_UP
+    type: ECS
+notificationRules:
+  - conditions:
+      - FAILED
+    executionScope: WORKFLOW
+    notificationGroups:
+      - accountId: kmpySmUISimoRrJL6NL73w
+        name: Account Administrator
+        editable: false
+    batchNotifications: false
+    active: true
+failureStrategies:
+  - failureTypes:
+      - APPLICATION_ERROR
+    executionScope: WORKFLOW
+    repairActionCode: ROLLBACK_WORKFLOW
+    retryCount: 0
+type: BASIC
