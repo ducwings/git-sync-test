@@ -3,3 +3,7 @@ pipelineStages:
     parallel: false
     workflowName: WorkflowA
     type: ENV_STATE
+  - name: step2
+    parallel: false
+    workflowName: WorkflowB
+    type: ENV_STATE
