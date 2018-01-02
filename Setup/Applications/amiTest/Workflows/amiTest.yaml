@@ -55,7 +55,7 @@ phases:
             properties:
                 commandName: Resize AutoScaling Group
                 instanceUnitType: PERCENTAGE
-                instanceCount: 50
+                instanceCount: 100
             type: AWS_AMI_SERVICE_DEPLOY
         rollback: false
         type: AMI_DEPLOY_AUTOSCALING_GROUP
