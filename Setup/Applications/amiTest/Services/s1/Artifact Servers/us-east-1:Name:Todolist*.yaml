@@ -1,0 +1,7 @@
+region: us-east-1
+tags:
+  - name: Name
+    value: Todolist*
+serverName: aws
+metadataOnly: true
+type: AMI
