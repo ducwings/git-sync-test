@@ -41,7 +41,54 @@ phases:
         rollback: false
         type: WRAP_UP
     type: AMI
+  - name: Phase 2
+    infraMappingName: aws (AWS_AMI) us-east-1
+    serviceName: s1
+    computeProviderName: aws
+    provisionNodes: false
+    phaseSteps:
+      - name: Deploy Service
+        stepsInParallel: false
+        steps:
+          - name: Upgrade AutoScaling Group
+            rollback: false
+            type: AWS_AMI_SERVICE_DEPLOY
+        rollback: false
+        type: AMI_DEPLOY_AUTOSCALING_GROUP
+      - name: Verify Service
+        stepsInParallel: false
+        rollback: false
+        type: VERIFY_SERVICE
+      - name: Wrap Up
+        stepsInParallel: false
+        rollback: false
+        type: WRAP_UP
+    type: AMI
 rollbackPhases:
+  - name: Rollback Phase 2
+    infraMappingName: aws (AWS_AMI) us-east-1
+    serviceName: s1
+    computeProviderName: aws
+    provisionNodes: false
+    phaseNameForRollback: Phase 2
+    phaseSteps:
+      - name: Rollback Service
+        statusForRollback: SUCCESS
+        stepsInParallel: false
+        steps:
+          - name: Rollback AutoScaling Group
+            rollback: false
+            properties:
+                rollback: true
+            type: AWS_AMI_SERVICE_ROLLBACK
+        rollback: true
+        phaseStepNameForRollback: Deploy Service
+        type: AMI_DEPLOY_AUTOSCALING_GROUP
+      - name: Wrap Up
+        stepsInParallel: false
+        rollback: false
+        type: WRAP_UP
+    type: AMI
   - name: Rollback Phase 1
     infraMappingName: aws (AWS_AMI) us-east-1
     serviceName: s1
