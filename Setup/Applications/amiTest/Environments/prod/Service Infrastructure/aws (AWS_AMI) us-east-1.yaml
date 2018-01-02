@@ -1,0 +1,9 @@
+region: us-east-1
+autoScalingGroupName: Ami__Application_Todolist__AMI_QA__5
+computeProviderType: AWS
+serviceName: s1
+infraMappingType: AWS_AMI
+deploymentType: AMI
+computeProviderName: aws
+harnessApiVersion: '1.0'
+type: AWS_AMI
