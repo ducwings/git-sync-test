@@ -1,5 +1,5 @@
 region: us-east-1
-autoScalingGroupName: WingsTestAsg
+autoScalingGroupName: todolist-AMI-base-ASG
 computeProviderType: AWS
 serviceName: s1
 infraMappingType: AWS_AMI
