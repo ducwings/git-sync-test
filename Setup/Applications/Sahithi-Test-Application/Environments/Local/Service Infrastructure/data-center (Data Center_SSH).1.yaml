@@ -1,0 +1,10 @@
+connection: 2hjzxwpSQyKzM_2t8wue5w
+hostNames:
+  - ec2-107-22-158-253.compute-1.amazonaws.com
+computeProviderType: PHYSICAL_DATA_CENTER
+serviceName: Catalog
+infraMappingType: PHYSICAL_DATA_CENTER_SSH
+deploymentType: SSH
+computeProviderName: physical_data_center
+harnessApiVersion: '1.0'
+type: PHYSICAL_DATA_CENTER_SSH
