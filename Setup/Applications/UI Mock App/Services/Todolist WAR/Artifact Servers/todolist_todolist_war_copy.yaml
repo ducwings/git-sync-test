@@ -1,0 +1,6 @@
+jobName: todolist/todolist_war_copy
+artifactPaths:
+  - target/todolist.war
+serverName: Harness Jenkins
+metadataOnly: false
+type: JENKINS
