@@ -12,6 +12,11 @@ phases:
         steps:
           - name: AWS AutoScaling Group Setup
             rollback: false
+            properties:
+                autoScalingGroupName: ${app.name}_${service.name}_${env.name}
+                maxInstances: 2
+                resizeStrategy: RESIZE_NEW_FIRST
+                autoScalingSteadyStateTimeout: 10
             type: AWS_AMI_SERVICE_SETUP
         rollback: false
         type: AMI_AUTOSCALING_GROUP_SETUP
