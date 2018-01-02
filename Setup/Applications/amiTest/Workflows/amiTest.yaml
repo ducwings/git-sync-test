@@ -25,6 +25,10 @@ phases:
         steps:
           - name: Upgrade AutoScaling Group
             rollback: false
+            properties:
+                commandName: Resize AutoScaling Group
+                instanceUnitType: PERCENTAGE
+                instanceCount: 50
             type: AWS_AMI_SERVICE_DEPLOY
         rollback: false
         type: AMI_DEPLOY_AUTOSCALING_GROUP
