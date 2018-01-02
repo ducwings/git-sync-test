@@ -38,6 +38,17 @@ phases:
         type: ENABLE_SERVICE
       - name: Verify Service
         stepsInParallel: false
+        steps:
+          - name: Splunkv2
+            rollback: false
+            properties:
+                analysisServerConfigId: QGJF-dxcRFak3Aim2o-wzA
+                query: '*exception*'
+                analysisTolerance: LOW
+                comparisonStrategy: COMPARE_WITH_PREVIOUS
+                executeWithPreviousSteps: false
+                timeDuration: '15'
+            type: SPLUNKV2
         rollback: false
         type: VERIFY_SERVICE
       - name: Wrap Up
