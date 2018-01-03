@@ -1,0 +1,12 @@
+region: us-east-1
+connectionType: Wings Key
+usePublicDns: true
+provisionInstances: false
+desiredCapacity: 0
+computeProviderType: AWS
+serviceName: todolist
+infraMappingType: AWS_SSH
+deploymentType: SSH
+computeProviderName: aws
+harnessApiVersion: '1.0'
+type: AWS_SSH
