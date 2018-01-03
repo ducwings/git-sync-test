@@ -1,5 +1,99 @@
 envName: aws-dev
 templatized: false
+phases:
+  - name: Phase 1
+    infraMappingName: aws (AWS_SSH) us-east-1
+    serviceName: todolist
+    computeProviderName: aws
+    provisionNodes: false
+    phaseSteps:
+      - name: Provision Nodes
+        stepsInParallel: false
+        steps:
+          - name: Select Nodes
+            rollback: false
+            properties:
+                instanceCount: 1
+                specificHosts: false
+            type: AWS_NODE_SELECT
+        rollback: false
+        type: PROVISION_NODE
+      - name: Disable Service
+        stepsInParallel: false
+        rollback: false
+        type: DISABLE_SERVICE
+      - name: Deploy Service
+        stepsInParallel: false
+        steps:
+          - name: Install
+            rollback: false
+            properties:
+                commandName: Install
+            type: COMMAND
+        rollback: false
+        type: DEPLOY_SERVICE
+      - name: Enable Service
+        stepsInParallel: false
+        rollback: false
+        type: ENABLE_SERVICE
+      - name: Verify Service
+        stepsInParallel: false
+        rollback: false
+        type: VERIFY_SERVICE
+      - name: Wrap Up
+        stepsInParallel: false
+        rollback: false
+        type: WRAP_UP
+    type: SSH
+rollbackPhases:
+  - name: Rollback Phase 1
+    infraMappingName: aws (AWS_SSH) us-east-1
+    serviceName: todolist
+    computeProviderName: aws
+    provisionNodes: false
+    phaseNameForRollback: Phase 1
+    phaseSteps:
+      - name: Disable Service
+        statusForRollback: SUCCESS
+        stepsInParallel: false
+        rollback: true
+        phaseStepNameForRollback: Enable Service
+        type: DISABLE_SERVICE
+      - name: Stop Service
+        statusForRollback: SUCCESS
+        stepsInParallel: false
+        steps:
+          - name: Stop
+            rollback: true
+            properties:
+                commandName: Stop
+            type: COMMAND
+        rollback: true
+        phaseStepNameForRollback: Deploy Service
+        type: STOP_SERVICE
+      - name: Deploy Service
+        statusForRollback: SUCCESS
+        stepsInParallel: false
+        steps:
+          - name: Install
+            rollback: true
+            properties:
+                commandName: Install
+            type: COMMAND
+        rollback: true
+        phaseStepNameForRollback: Deploy Service
+        type: DEPLOY_SERVICE
+      - name: Enable Service
+        statusForRollback: SUCCESS
+        stepsInParallel: false
+        rollback: true
+        phaseStepNameForRollback: Disable Service
+        type: ENABLE_SERVICE
+      - name: Wrap Up
+        stepsInParallel: false
+        rollback: false
+        type: WRAP_UP
+    type: SSH
 notificationRules:
   - conditions:
       - FAILED
