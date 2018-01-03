@@ -1,0 +1,32 @@
+templatized: false
+phases:
+  - name: Phase 1
+    provisionNodes: false
+    phaseSteps:
+      - name: Prepare Steps
+        stepsInParallel: false
+        rollback: false
+        type: PREPARE_STEPS
+      - name: Collect Artifact
+        stepsInParallel: false
+        steps:
+          - name: Artifact Collection
+            rollback: false
+            type: ARTIFACT_COLLECTION
+        rollback: false
+        type: COLLECT_ARTIFACT
+      - name: Wrap Up
+        stepsInParallel: false
+        rollback: false
+        type: WRAP_UP
+notificationRules:
+  - conditions:
+      - FAILED
+    executionScope: WORKFLOW
+    notificationGroups:
+      - accountId: kmpySmUISimoRrJL6NL73w
+        name: Account Administrator
+        editable: false
+    batchNotifications: false
+    active: true
+type: BUILD
