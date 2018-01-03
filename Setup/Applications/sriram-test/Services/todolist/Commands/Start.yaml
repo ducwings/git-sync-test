@@ -2,7 +2,10 @@ commandUnitType: COMMAND
 targetToAllEnv: true
 commandUnits:
   - workingDirectory: $WINGS_RUNTIME_PATH/tomcat/bin
-    command: ./startup.sh
+    command: |-
+        export CATALINA_OPTS=-javaagent:$HOME/newrelic/newrelic.jar
+        export JAVA_OPTS=-Dsumo.url=https://endpoint2.collection.us2.sumologic.com/receiver/v1/http/ZaVnC4dhaV2d-mlNvE1C9a9Z0zwxrksDTKSKg0kcPW_3qVUN6lYw-ag-anhLN2Wozl7ZN8-SrrOzRnwhpOX0mres9g3v0a2UcN-NStlB0Iop_7tFJrt0rQ==
+        ./startup.sh
     filePatternEntryList:
       - filePath: $WINGS_RUNTIME_PATH/tomcat/logs/catalina.out
         searchPattern: Server startup in
