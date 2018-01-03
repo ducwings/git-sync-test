@@ -3,9 +3,9 @@ envName: DEV
 templatized: false
 phases:
   - name: Phase 1
-    infraMappingName: aws (AWS_SSH) us-east-1
+    infraMappingName: aws (AWS_SSH) us-east-1.1
     serviceName: Todolist WAR
-    computeProviderName: aws
+    computeProviderName: h-aws
     provisionNodes: false
     phaseSteps:
       - name: Provision Nodes
@@ -14,10 +14,8 @@ phases:
           - name: Select Nodes
             rollback: false
             properties:
-                hostNames:
-                  - ip-172-31-1-93.ec2.internal
                 excludeSelectedHostsFromFuturePhases: false
-                specificHosts: true
+                specificHosts: false
             type: AWS_NODE_SELECT
         rollback: false
         type: PROVISION_NODE
@@ -57,9 +55,9 @@ phases:
     type: SSH
 rollbackPhases:
   - name: Rollback Phase 1
-    infraMappingName: aws (AWS_SSH) us-east-1
+    infraMappingName: aws (AWS_SSH) us-east-1.1
     serviceName: Todolist WAR
-    computeProviderName: aws
+    computeProviderName: h-aws
     provisionNodes: false
     phaseNameForRollback: Phase 1
     phaseSteps:
