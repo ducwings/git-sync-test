@@ -14,8 +14,7 @@ phases:
           - name: Select Nodes
             rollback: false
             properties:
-                hostNames:
-                  - ip-172-31-12-191.ec2.internal
+                hosts: ip-172-31-12-191.ec2.internal
                 excludeSelectedHostsFromFuturePhases: true
                 specificHosts: true
             type: AWS_NODE_SELECT
@@ -41,6 +40,13 @@ phases:
         type: ENABLE_SERVICE
       - name: Verify Service
         stepsInParallel: false
+        steps:
+          - name: Http
+            rollback: false
+            properties:
+                method: GET
+                url: http://www.example.com/
+            type: HTTP
         rollback: false
         type: VERIFY_SERVICE
       - name: Wrap Up
