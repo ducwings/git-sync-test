@@ -1,0 +1,7 @@
+commandUnitType: COMMAND
+targetToAllEnv: true
+commandUnits:
+  - name: Amazon Code Deploy
+    commandUnitType: CODE_DEPLOY
+    deploymentType: AWS_CODEDEPLOY
+type: INSTALL
