@@ -14,8 +14,10 @@ phases:
           - name: Select Nodes
             rollback: false
             properties:
-                instanceCount: 1
-                specificHosts: false
+                hostNames:
+                  - ip-172-31-12-191.ec2.internal
+                excludeSelectedHostsFromFuturePhases: true
+                specificHosts: true
             type: AWS_NODE_SELECT
         rollback: false
         type: PROVISION_NODE
