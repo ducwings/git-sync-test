@@ -1,0 +1,7 @@
+commandUnitType: COMMAND
+targetToAllEnv: true
+commandUnits:
+  - name: Resize AutoScaling Group
+    commandUnitType: AWS_AMI
+    deploymentType: AMI
+type: INSTALL
