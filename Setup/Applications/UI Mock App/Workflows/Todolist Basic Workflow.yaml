@@ -14,8 +14,10 @@ phases:
           - name: Select Nodes
             rollback: false
             properties:
+                hostNames:
+                  - ec2-107-22-158-253.compute-1.amazonaws.com
                 excludeSelectedHostsFromFuturePhases: false
-                specificHosts: false
+                specificHosts: true
             type: AWS_NODE_SELECT
         rollback: false
         type: PROVISION_NODE
