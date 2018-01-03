@@ -41,6 +41,16 @@ phases:
         type: ENABLE_SERVICE
       - name: Verify Service
         stepsInParallel: false
+        steps:
+          - name: SumoLogic
+            rollback: false
+            properties:
+                analysisServerConfigId: DeS-_2sUSTmprunRXuVUGQ
+                query: '*exception*'
+                analysisTolerance: LOW
+                comparisonStrategy: COMPARE_WITH_PREVIOUS
+                timeDuration: '15'
+            type: SUMO
         rollback: false
         type: VERIFY_SERVICE
       - name: Wrap Up
