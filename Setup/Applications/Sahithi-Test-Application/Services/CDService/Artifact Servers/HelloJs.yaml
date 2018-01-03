@@ -1,0 +1,6 @@
+jobName: HelloJs
+artifactPaths:
+  - hello.zip
+serverName: Harness Jenkins
+metadataOnly: false
+type: JENKINS
