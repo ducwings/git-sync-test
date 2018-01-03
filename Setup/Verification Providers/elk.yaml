@@ -1,0 +1,4 @@
+elkUrl: http://ec2-54-175-185-114.compute-1.amazonaws.com:9200/
+password: safeharness:YdMrygQqQQ67jOmVuoOBNA
+connectorType: ELASTIC_SEARCH_SERVER
+type: ELK
