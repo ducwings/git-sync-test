@@ -1,4 +1,5 @@
-elkUrl: http://ec2-54-175-185-114.compute-1.amazonaws.com:5601/
+elkUrl: ' http://ec2-34-207-78-53.compute-1.amazonaws.com:5601/'
+username: kibana
 password: safeharness:0fZmsnSBTjyurG4E4JYJDA
 connectorType: KIBANA_SERVER
 type: ELK
