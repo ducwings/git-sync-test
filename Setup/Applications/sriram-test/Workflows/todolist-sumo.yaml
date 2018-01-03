@@ -40,7 +40,7 @@ phases:
         rollback: false
         type: ENABLE_SERVICE
       - name: Verify Service
-        stepsInParallel: false
+        stepsInParallel: true
         steps:
           - name: SumoLogic
             rollback: false
