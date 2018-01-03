@@ -1,0 +1,7 @@
+commandUnitType: COMMAND
+targetToAllEnv: true
+commandUnits:
+  - name: Setup Kubernetes Replication Controller
+    commandUnitType: KUBERNETES_SETUP
+    deploymentType: KUBERNETES
+type: SETUP

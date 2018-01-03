@@ -1,0 +1,7 @@
+commandUnitType: COMMAND
+targetToAllEnv: true
+commandUnits:
+  - name: Resize ECS Service
+    commandUnitType: RESIZE
+    deploymentType: ECS
+type: RESIZE
