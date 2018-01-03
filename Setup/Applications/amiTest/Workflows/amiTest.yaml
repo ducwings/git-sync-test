@@ -61,13 +61,6 @@ phases:
         type: AMI_DEPLOY_AUTOSCALING_GROUP
       - name: Verify Service
         stepsInParallel: false
-        steps:
-          - name: Http
-            rollback: false
-            properties:
-                method: GET
-                url: kgg
-            type: HTTP
         rollback: false
         type: VERIFY_SERVICE
       - name: Wrap Up
