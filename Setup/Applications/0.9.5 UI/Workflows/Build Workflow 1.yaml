@@ -1,4 +1,4 @@
-templatized: false
+templatized: true
 phases:
   - name: Phase 1
     provisionNodes: false
@@ -29,4 +29,13 @@ notificationRules:
         editable: false
     batchNotifications: false
     active: true
+userVariables:
+  - name: v1
+    mandatory: false
+    fixed: false
+    type: TEXT
+  - name: v2
+    mandatory: false
+    fixed: false
+    type: TEXT
 type: BUILD
