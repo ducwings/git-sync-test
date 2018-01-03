@@ -45,7 +45,7 @@ phases:
         rollback: false
         type: WRAP_UP
     type: SSH
-  - name: Phase 1
+  - name: Phase BBB
     infraMappingName: aws (AWS_SSH) us-east-1
     serviceName: WAR Service 1
     computeProviderName: h-aws
@@ -90,12 +90,12 @@ phases:
         type: WRAP_UP
     type: SSH
 rollbackPhases:
-  - name: Rollback Phase 1
+  - name: Rollback Phase BBB
     infraMappingName: aws (AWS_SSH) us-east-1
     serviceName: WAR Service 1
     computeProviderName: h-aws
     provisionNodes: false
-    phaseNameForRollback: Phase 1
+    phaseNameForRollback: Phase BBB
     phaseSteps:
       - name: Disable Service
         statusForRollback: SUCCESS
