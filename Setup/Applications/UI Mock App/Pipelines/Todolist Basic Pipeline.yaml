@@ -1,0 +1,4 @@
+pipelineStages:
+  - name: Approval 0
+    parallel: false
+    type: APPROVAL
