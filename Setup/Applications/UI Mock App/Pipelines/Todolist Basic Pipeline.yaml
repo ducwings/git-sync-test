@@ -2,7 +2,7 @@ pipelineStages:
   - name: Approval 0
     parallel: false
     type: APPROVAL
-  - name: Step 1
+  - name: Deployment Step
     parallel: false
     workflowName: Todolist Basic Workflow
     type: ENV_STATE
