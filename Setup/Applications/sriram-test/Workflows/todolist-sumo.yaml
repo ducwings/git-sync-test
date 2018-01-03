@@ -51,6 +51,18 @@ phases:
                 comparisonStrategy: COMPARE_WITH_PREVIOUS
                 timeDuration: '15'
             type: SUMO
+          - name: Jenkins
+            rollback: false
+            properties:
+                jobName: python-todolist-load
+                jenkinsConfigId: KeOY_wtIQjqLrnQcKms2AQ
+                jobParameters:
+                  - key: url
+                    value: http://sriram-local-847437426.us-east-1.elb.amazonaws.com:80/todolist/exception
+                  - key: run_time
+                    value: '15'
+                timeoutMillis: 1800000
+            type: JENKINS
         rollback: false
         type: VERIFY_SERVICE
       - name: Wrap Up
