@@ -1,7 +1,7 @@
 envName: DEV
 templatized: false
 phases:
-  - name: Phase Changed1
+  - name: Phase Abc
     infraMappingName: aws (AWS_SSH) us-east-1
     serviceName: WAR Service 1
     computeProviderName: h-aws
@@ -46,12 +46,12 @@ phases:
         type: WRAP_UP
     type: SSH
 rollbackPhases:
-  - name: Rollback Phase Changed1
+  - name: Rollback Phase Abc
     infraMappingName: aws (AWS_SSH) us-east-1
     serviceName: WAR Service 1
     computeProviderName: h-aws
     provisionNodes: false
-    phaseNameForRollback: Phase Changed1
+    phaseNameForRollback: Phase Abc
     phaseSteps:
       - name: Disable Service
         statusForRollback: SUCCESS
