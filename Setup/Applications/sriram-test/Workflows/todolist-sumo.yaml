@@ -63,18 +63,6 @@ phases:
                     value: '15'
                 timeoutMillis: 1800000
             type: JENKINS
-          - name: ELK
-            rollback: false
-            properties:
-                messageField: input_type
-                indices: filebeat-*
-                analysisServerConfigId: 7XXxgj_LQnuZhOSNLpeWDQ
-                query: .*exception.*
-                analysisTolerance: LOW
-                comparisonStrategy: COMPARE_WITH_PREVIOUS
-                hostnameField: offset
-                timeDuration: '15'
-            type: ELK
         rollback: false
         type: VERIFY_SERVICE
       - name: Wrap Up
